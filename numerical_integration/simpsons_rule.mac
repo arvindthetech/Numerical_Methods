@@ -1,0 +1,25 @@
+Find the integration of f(x) = 1/x in [1, 2] by using
+Simpson'rule Method
+
+f(x) := 1/x;
+a : 1;
+b : 2;
+h : (b - a)/2;
+
+i1 : float(h/3*(f(a) + 4*f((a + b)/2) + f(b)));
+i : float(integrate(f(x), x, a, b));
+er : abs(i - i1);
+
+
+
+Find the integration of f(x) = sin^x in [0, π/2] by using
+simpson'rule Method.
+
+f(x) := sin(x);
+a : 0;
+b : %pi / 2;
+h : (b - a) / 2;
+
+i1 : float((h / 3) * (f(a) + 4 * f((a + b) / 2) + f(b)));
+i : float(integrate(f(x), x, a, b));
+er : abs(i - i1);
