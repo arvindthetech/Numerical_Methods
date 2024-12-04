@@ -1,0 +1,29 @@
+4.1 Find the root of f(x) = x^3 - 5x + 1 by newton-Raphson Method.
+
+f(x) := x^3 -5*x + 1;
+wxplot2d(f(x), [x, -5, 5]);
+define (df(x), diff(f(x),x));
+x0 : 0.5;
+
+for n : 1 thru 10 do (
+x1 : float(x0 - f(x0)/df(x0)),
+x0 : x1,
+print(n, "iteration gives", x0))$
+
+
+
+4.2 Find the root of f(x) = x^3 - 5x + 1 by NR method with error 10^-6.
+
+f(x) := x^3 -5*x + 1;
+wxplot2d(f(x), [x, -5, 5]);
+define(df(x), diff(f(x), x));
+x0 : 0.5;
+er : 0.000001;
+
+for n : 1 thru 20 do (
+x1 : float(x0 - f(x0)/df(x0)),
+print(n, "iteration gives" , x0),
+if(abs(x1 - x0) < er) then (
+    print("Root Converse in", n, "iteration"),
+    return())
+else x0 : x1)$
