@@ -1,0 +1,13 @@
+2.1 Find the root of f(x) = x^3 - 2*x - 5 in [2, 3] by usinfg secant method.
+
+f(x) := x^3 - 2*x - 5;
+x0 : 2.0;
+x1 : 3.0;
+
+for i : 1 thru 10 do (
+x2 : float(x1 - (x1 - x0)*f(x1)/(f(x1)*f(x0))),
+x0 : x1,
+x1 : x2,
+print(i, "itration gives" , x2));
+print("Root after 10th itration" , x2);
+
