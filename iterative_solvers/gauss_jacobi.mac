@@ -1,0 +1,36 @@
+5.1 Solve the system of linear equation:
+      3x1+x2+x3=1
+      x1+3x2+x3=1
+      x1+x2+3x3=1
+      By gauss jacobi method
+
+x1 : 0.0;
+x2 : 0.0;
+x3 : 0.0;
+print("Iteration", "            ", "x1", "                                ", "x2", "                       ", "x3")$
+
+for i : 1 thru 20 do (
+nx1:(1−x2−x3)/3,
+nx2:(1−x1−x3)/3,
+nx3:(1−x1−x2)/3,
+x1:nx1, x2:nx2, x3:nx3,
+print(i, "        ", x1, "", x2, "", x3))$
+
+
+
+5.2 Solve the system of linear equation:
+        10x1+3x2+4x3=17
+        3x1+6x2+x3=10
+        x1+x2+3x3=3 by using jacobi method.
+
+x1 : 0.0;
+x2 : 0.0;
+x3 : 0.0;
+print("iteration", "            ", "x1", "             ", "x2", "             ", "x3")$
+
+for i : 1 thru 10 do(
+    nx1 : (17−3·x2−4·x3)/10,
+    nx2 : (10−3·x1−x3)/6,
+    nx3 : (3−x1−x2)/3,
+    x1 : nx1, x2 : nx2, x3 : nx3,
+print(i, "        ", x1, "", x2, "", x3))$
