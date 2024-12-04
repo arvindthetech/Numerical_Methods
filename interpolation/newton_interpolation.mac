@@ -1,0 +1,18 @@
+7.3 Find the interpolating polynomial using divide difference given x = [0, 1, 2, 3], y =
+[1, 2, 4, 8] and evaluate the value at
+x = 2.8
+
+x[0] : 0;
+x[1] : 1;
+x[2] : 2;
+x[3] : 3;
+
+dd(n) := sum(f(x[i])/product(if equal(j,i)then 1
+ else(x[i]−x[j]),j,0,n),i,0,n);
+
+p[n](x) := sum(dd(i)·product (if(i<=j)then 1
+ else(x−x[j]),j,0,n),i,0,n);
+
+subst([f(x[0])=1, f(x[1])=2, f(x[2])=4, f(x[3])=8], 'p[3](x)=p[3](x));
+ratsimp(%);
+ev(%,x=2.8);
