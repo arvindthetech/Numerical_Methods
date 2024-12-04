@@ -1,0 +1,18 @@
+5.1 Solve IVP dy/dx = x^2 + y ;  y(x0) = 1 at x0 = 0 by using Euler's Method taken step
+as h = 0.1
+
+f(x,y) := x^2 + y;
+x0 : 0.0;
+y0 : 1.0;
+h : 0.1;
+array(yn, flonum, 4);
+
+for i : 1 thru 4 do (
+slope : f(x0, y0),
+yn[i] : y0 + h * slope,
+x0 : x0 + h,
+y0 : yn[i], print("Step", i, "=", yn[i])
+)$
+
+
+
