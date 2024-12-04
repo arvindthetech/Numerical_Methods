@@ -1,0 +1,46 @@
+1.1 Find the root of f(x) x^3 + 2.x^2 - 3.x - 1 using bisection
+method.
+
+f(x) := x^3 + 2*x^2 - 3*x - 1;
+x0 : 1.0;
+x1 : 2.0;
+
+if float(f(x0) * f(x1)) > 0 then 
+    print("Change the value of initial guesses") 
+else
+    for i:0 thru 10 do (
+        m : (x0 + x1) / 2,
+        if f(x0) * f(m) > 0 then 
+            x0 : m 
+        else 
+            x1 : m,
+        print(i, "Iteration gives", m)
+    )$
+print("After 10th iteration, root is", m)$
+
+1.2 Find the root of function f(x) = x^3 + 2*x^3 -3*x - 1 using
+bisection method with error 0.01.
+
+f(x) := x^3 + 2*x^2 - 3*x - 1;
+x0 : 1.0;
+x1 : 2.0;
+n : 20;
+er : 0.01;
+
+if (float(f(x0) * f(x1)) > 0) then 
+    print("Change the values of initial guesses") 
+else
+    for i : 1 thru n do (
+        m : (x0 + x1) / 2,
+        if (abs(x1 - x0) < er) then (
+            print("Root converged at iteration", i, ", and root is", m),
+            return()
+        ) else (
+            if (f(m) * f(x1) > 0) then 
+                x1 : m 
+            else 
+                x0 : m
+        )
+    )$
+print("Root is", m)$
+
